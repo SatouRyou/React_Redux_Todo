@@ -1,25 +1,20 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import configureStore from '../store/configureStore';
-import Home from '../components/Home';
-import {renderDevTools} from '../utils/devTools';
+import React, { Component } from 'react';
+import Header from '../components/Header';
+import MainSection from '../components/MainSection';
 
-const store = configureStore();
+const todos = [
+  { id: 0, text: 'Learn Redux' },
+];
 
-export default React.createClass({
+class App extends Component {
   render() {
     return (
       <div>
-
-        {/* <Home /> is your app entry point */}
-        <Provider store={store}>
-          <Home />
-        </Provider>
-
-        {/* only renders when running in DEV mode */
-          renderDevTools(store)
-        }
+        <Header />
+        <MainSection todos={todos}/>
       </div>
     );
   }
-});
+}
+
+export default App;
