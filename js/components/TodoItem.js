@@ -3,14 +3,19 @@ import TodoTextInput from './TodoTextInput';
 
 class TodoItem extends Component {
   render() {
-    const { todo } = this.props;
+    const { todo, deleteTodo } = this.props;
     return (
-      <div className="view">
-        <label>
-          {todo.text}
-        </label>
-        <button className="destroy" />
-      </div>
+      <li>
+      　<div className="view">
+      　  <label>
+      　    {todo.text}
+    　    </label>
+    　    <button
+            className="destroy"
+            onClick={()=> deleteTodo(todo.id)}
+            >delete</button>
+    　  </div>
+      </li>
     );
   }
 }
